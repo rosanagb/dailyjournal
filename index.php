@@ -204,33 +204,29 @@ include "koneksi.php";
           data-bs-ride="carousel"
         >
           <div class="carousel-inner rounded shadow">
-            <div class="carousel-item active">
-              <img src="img/paroki.jpg" class="d-block w-100" alt="Paroki" />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="img/sarasehan.jpg"
-                class="d-block w-100"
-                alt="Sarasehan"
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="img/rohani.jpg"
-                class="d-block w-100"
-                alt="Kegiatan Rohani"
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="img/gedangan.jpg"
-                class="d-block w-100"
-                alt="Kapel Gedangan"
-              />
-            </div>
-            <div class="carousel-item">
-              <img src="img/damai.jpg" class="d-block w-100" alt="Damai" />
-            </div>
+            <div class="carousel-inner rounded shadow">
+  <?php
+  include "koneksi.php";
+
+  $sql = "SELECT * FROM gallery ORDER BY id_gallery ASC";
+  $hasil = $conn->query($sql);
+
+  $active = "active";
+  while ($row = $hasil->fetch_assoc()) {
+  ?>
+    <div class="carousel-item <?= $active ?>">
+      <img
+        src="img/<?= $row['gambar'] ?>"
+        class="d-block w-100"
+        alt="<?= $row['judul'] ?>"
+      />
+    </div>
+  <?php
+    $active = "";
+  }
+  ?>
+</div>
+
           </div>
 
           <button

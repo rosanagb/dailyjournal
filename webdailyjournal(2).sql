@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2025 at 06:18 AM
+-- Generation Time: Jan 14, 2026 at 03:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,6 +51,31 @@ INSERT INTO `article` (`id`, `judul`, `isi`, `gambar`, `tanggal`, `username`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gallery`
+--
+
+CREATE TABLE `gallery` (
+  `id_gallery` int(11) NOT NULL,
+  `judul` varchar(25) NOT NULL,
+  `gambar` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `gallery`
+--
+
+INSERT INTO `gallery` (`id_gallery`, `judul`, `gambar`) VALUES
+(1, 'Paroki', 'paroki.jpg'),
+(2, 'Damai', 'damai.jpg'),
+(3, 'Komunitas', 'komunitas.jpg'),
+(4, 'Sarasehan', 'sarasehan.jpg'),
+(5, 'Rohani', 'rohani.jpg'),
+(6, 'Biara Induk', 'gedangan.jpg'),
+(10, 'coba', '20260114202826.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -66,7 +91,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `foto`) VALUES
-(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '');
+(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', ''),
+(2, 'user1', 'e00cf25ad42683b3df678c61f42c6bda', ''),
+(3, 'user2', 'c84258e9c39059a89ab77d846ddab909', ''),
+(4, 'danny', '21232f297a57a5a743894a0e4a801fc3', ''),
+(5, 'user3', '32cacb2f994f6b42183a1300d9a3e8d6', ''),
+(6, 'user4', 'fc1ebc848e31e0a68e868432225e3c82', '');
 
 --
 -- Indexes for dumped tables
@@ -77,6 +107,12 @@ INSERT INTO `user` (`id`, `username`, `password`, `foto`) VALUES
 --
 ALTER TABLE `article`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id_gallery`);
 
 --
 -- Indexes for table `user`
@@ -95,10 +131,16 @@ ALTER TABLE `article`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
+-- AUTO_INCREMENT for table `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
